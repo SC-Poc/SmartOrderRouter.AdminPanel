@@ -1,0 +1,46 @@
+<div class="campaign-container">
+    <div class="page-header">
+        <h1 class="page-header-title">Create Market Order ({{assetPair}})</h1>
+    </div>
+
+    <div class="kt-portlet">
+        <div class="kt-portlet__body">
+            <form [formGroup]="marketOrderForm" (ngSubmit)="onSubmit()">
+                <mat-card>
+                    <mat-card-title>
+                        <span>Order Details</span>
+                    </mat-card-title>
+                    <mat-card-content>
+                        <mat-grid-list cols="4" rowHeight="77px" gutterSize="30px">
+                            <mat-grid-tile>
+                                <mat-form-field appearance="outline" class="width-100">
+                                    <mat-label>Volume</mat-label>
+                                    <input matInput formControlName="Volume" placeholder="Volume" type="number" min="0"
+                                        max="1000" step="1" required>
+                                </mat-form-field>
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                                <mat-form-field appearance="outline" class="width-100">
+                                    <mat-label>Volume</mat-label>
+                                    <mat-select formControlName="Type" placeholder="Type order" required>
+                                        <mat-option *ngFor="let type of types" [value]="type">
+                                            {{type}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-card-content>
+                </mat-card>
+                <div class="form-navigation d-flex justify-content-between align-items-center" style="padding: 40px 0">
+                    <button type="button" class="btn btn-outline-brand btn-upper btn-bold" style="min-width: 120px;"
+                        routerLink="/orders">Cancel</button>
+                    <div>
+                        <button type="submit" class="btn btn-brand btn-upper btn-bold" style="min-width: 120px;"
+                            [disabled]="isSaving">Create</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

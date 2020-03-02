@@ -1,0 +1,25 @@
+@import '../utils/variables';
+
+.mat-card {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.mat-form-field {
+  font-size: 1rem;
+}
+
+.mat-dialog-container {
+  min-width: 500px;
+}
+
+.cdk-overlay-container {
+  .mat-select-panel {
+    max-width: 350px;
+  }
+}
+
+.mat-checkbox {
+  > label {
+    margin: 0;
+  }
+}

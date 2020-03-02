@@ -1,0 +1,33 @@
+<div>
+    <div class="page-header">
+        <h1 class="page-header-title">Balances</h1>
+    </div>
+    <div class="kt-portlet">
+        <div class="kt-portlet__body">
+            <div class="dataTables_wrapper bg-white" *ngIf="source">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Asset</th>
+                            <th *ngFor="let exchange of source.Exchanges;">{{exchange}}</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let asset of source.Assets">
+                            <td>
+                                <span>{{asset.Asset}}</span>
+                            </td>
+                            <td *ngFor="let amount of asset.Amounts">
+                                <span>{{amount}}</span>
+                            </td>
+                            <td>
+                                <span>{{asset.Total}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+@import '~src/scss/default-theme/utils/variables';
+
+.context-badge {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 6px 18px;
+  display: inline-block;
+
+  &.light-green,
+  &.active {
+    background: $light-green;
+  }
+
+  &.pink,
+  &.inactive {
+    background: $pink;
+  }
+
+  &.yellow,
+  &.pending {
+    background: $yellow;
+  }
+
+  &.purple,
+  &.complete {
+    background: $purple;
+  }
+}

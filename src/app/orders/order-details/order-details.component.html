@@ -1,0 +1,103 @@
+<div>
+    <div class="page-header">
+        <h1 class="page-header-title">Order Details</h1>
+    </div>
+    <h3>Market Order</h3>
+    <div class="kt-portlet">
+        <div class="kt-portlet__body">
+            <div class="dataTables_wrapper bg-white" *ngIf="marketOrder">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Asset Pair</th>
+                            <th>Type</th>
+                            <th>Volume</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span>{{marketOrder.Id}}</span>
+                            </td>
+                            <td>
+                                <span>{{marketOrder.AssetPair}}</span>
+                            </td>
+                            <td [style.color]="marketOrder.Type === 'Sell' ? 'red' : 'green'">
+                                <span><b>{{marketOrder.Type}}</b></span>
+                            </td>
+                            <td>
+                                <span><b>{{marketOrder.Volume}}</b></span>
+                            </td>
+                            <td>
+                                <span>{{marketOrder.Status}}</span>
+                            </td>
+                            <td>
+                                <span>{{marketOrder.CreatedDate}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <h3>External Limit Orders</h3>
+    <div class="kt-portlet">
+        <div class="kt-portlet__body">
+            <div class="dataTables_wrapper bg-white" *ngIf="externalLimitOrders">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Exchange</th>
+                            <th>Asset Pair</th>
+                            <th>Price</th>
+                            <th>Volume</th>
+                            <th>Type</th>
+                            <th>Executed Price</th>
+                            <th>Executed Volume</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let externalLimitOrder of externalLimitOrders">
+                            <td>
+                                <span>{{externalLimitOrder.Id}}</span>
+                            </td>
+                            <td>
+                                <span>{{externalLimitOrder.Exchange}}</span>
+                            </td>
+                            <td>
+                                <span>{{externalLimitOrder.AssetPair}}</span>
+                            </td>
+                            <td>
+                                <span><b>{{externalLimitOrder.Price}}</b></span>
+                            </td>
+                            <td>
+                                <span><b>{{externalLimitOrder.Volume}}</b></span>
+                            </td>
+                            <td [style.color]="externalLimitOrder.Type === 'Sell' ? 'red' : 'green'">
+                                <span><b>{{externalLimitOrder.Type}}</b></span>
+                            </td>
+                            <td>
+                                <span><b>{{externalLimitOrder.ExecutedPrice}}</b></span>
+                            </td>
+                            <td>
+                                <span><b>{{externalLimitOrder.ExecutedVolume}}</b></span>
+                            </td>
+                            <td>
+                                <span>{{externalLimitOrder.Status}}</span>
+                            </td>
+                            <td>
+                                <span>{{externalLimitOrder.CreatedDate}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,159 @@
+<div>
+    <!-- begin:: Header Mobile -->
+    <div id="kt_header_mobile"
+         class="kt-header-mobile  kt-header-mobile--fixed ">
+      <div class="kt-header-mobile__logo">
+        <a href="/">
+          <img alt="Logo" src="assets/images/logo.png" style="width: 90px" />
+        </a>
+      </div>
+      <div class="kt-header-mobile__toolbar">
+        <button class="kt-header-mobile__toolbar-toggler kt-header-mobile__toolbar-toggler--left"
+                id="kt_aside_mobile_toggler"><span></span></button>
+        <button class="kt-header-mobile__toolbar-topbar-toggler"
+                id="kt_header_mobile_topbar_toggler"><i class="flaticon-more"></i></button>
+      </div>
+    </div>
+    <!-- end:: Header Mobile -->
+  
+    <div class="kt-grid kt-grid--hor kt-grid--root">
+      <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+  
+        <!-- begin:: Aside -->
+        <button class="kt-aside-close "
+                id="kt_aside_close_btn"><i class="la la-close"></i></button>
+        <div class="kt-aside  kt-aside--fixed  kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop"
+             id="kt_aside">
+          <div class="kt-aside__brand   kt-grid__item"
+               id="kt_aside_brand">
+            <div class="kt-aside__brand-logo">
+              <a href="/">
+                <img alt="Logo" src="assets/images/logo.png" style="width: 70px" />
+              </a>
+            </div>
+            <div class="kt-aside__brand-tools">
+              <button class="kt-aside__brand-aside-toggler kt-aside__brand-aside-toggler--left"
+                      id="kt_aside_toggler"><span></span></button>
+            </div>
+          </div>
+          <!-- end:: Aside -->
+  
+          <!-- begin:: Aside Menu -->
+          <div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid"
+               id="kt_aside_menu_wrapper">
+            <div id="kt_aside_menu"
+                 class="kt-aside-menu "
+                 data-ktmenu-vertical="1"
+                 data-ktmenu-scroll="1"
+                 data-ktmenu-dropdown-timeout="500">
+              <ul class="kt-menu__nav ">
+                <li class="kt-menu__item "
+                    routerLinkActive="kt-menu__item--active">
+                  <a class="kt-menu__link "
+                     routerLink="/dashboard">
+                    <i class="kt-menu__link-icon fa fa-chart-bar"></i>
+                    <span class="kt-menu__link-text">Dashboard</span>
+                  </a>
+                </li>
+                <li class="kt-menu__item "
+                    routerLinkActive="kt-menu__item--active">
+                  <a class="kt-menu__link "
+                     routerLink="/order-books">
+                    <i class="kt-menu__link-icon fa fa-id-card"></i>
+                    <span class="kt-menu__link-text">Order Books</span>
+                  </a>
+                </li>
+                <li class="kt-menu__item "
+                    routerLinkActive="kt-menu__item--active">
+                  <a class="kt-menu__link "
+                     routerLink="/orders">
+                    <i class="kt-menu__link-icon fa fa-id-card"></i>
+                    <span class="kt-menu__link-text">Orders</span>
+                  </a>
+                </li>
+                <li class="kt-menu__item "
+                    routerLinkActive="kt-menu__item--active">
+                  <a class="kt-menu__link "
+                     routerLink="/balances">
+                    <i class="kt-menu__link-icon fa fa-id-card"></i>
+                    <span class="kt-menu__link-text">Balances</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- end:: Aside Menu -->
+        </div>
+  
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper">
+          <!-- begin:: Header -->
+          <div id="kt_header"
+               class="kt-header kt-grid__item"
+               data-ktheader-minimize="on">
+  
+            <div class="kt-header-menu-wrapper"
+                 id="kt_header_menu_wrapper"></div>
+  
+            <!-- begin:: Topbar -->
+            <div class="kt-header__topbar">
+    
+              <div class="kt-header__topbar-item">
+                <button id="btn_logout"
+                        (click)="logout()"
+                        class="btn btn-outline-brand">Logout</button>
+              </div>
+  
+              <!--begin: User -->
+              <div *ngIf="user"
+                   class="kt-header__topbar-item kt-header__topbar-item--user">
+                <div id="btn_account"
+                     class="kt-header__topbar-wrapper"
+                     data-toggle="dropdown"
+                     data-offset="2px,0px">
+                  <div class="kt-header__topbar-user">
+                    <span class="badge badge-secondary badge-user-initials">{{userInitials}}</span>
+                  </div>
+  
+                  <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
+                </div>
+                <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-md"
+                     style="width: 300px">
+                  <div class="kt-user-card kt-margin-b-50 kt-margin-b-50-tablet-and-mobile"
+                       style="background-image: url(assets/images/head_bg_sm.jpg)">
+                    <div class="kt-user-card__wrapper">
+                      <div class="kt-user-card__pic">
+                        <span class="badge badge-secondary badge-user-initials badge-user-initials--profile">{{userInitials}}</span>
+                      </div>
+                      <div class="kt-user-card__details">
+                        <div class="kt-user-card__name">{{user.FirstName}} {{user.LastName}}</div>
+                        <div class="kt-user-card__position"
+                             style="word-break: break-word;">
+                          {{user.Email}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="kt-nav kt-margin-b-20"></ul>
+                </div>
+              </div>
+  
+              <!--end: User -->
+            </div>
+            <!-- end:: Topbar -->
+          </div>
+          <!-- end:: Header -->
+  
+          <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+            <!-- begin:: Content -->
+            <div class="kt-content kt-grid__item kt-grid__item--fluid"
+                 id="kt_content">
+              <router-outlet></router-outlet>
+            </div>
+            <!-- end:: Content -->
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
